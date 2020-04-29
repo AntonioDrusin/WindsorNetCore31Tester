@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Castle.Windsor" Version="5.1.4-verge" />
-    <PackageReference Include="Castle.Windsor.Extensions.MsDependencyInjection" Version="5.1.4-verge" />
+    <PackageReference Include="Castle.Windsor" Version="5.1.5-verge" />
+    <PackageReference Include="Castle.Windsor.Extensions.MsDependencyInjection" Version="5.1.5-verge" />
   </ItemGroup>
 
 
