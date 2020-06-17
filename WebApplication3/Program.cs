@@ -10,14 +10,18 @@ namespace WebApplication3
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args) {
+            
+            return Host.CreateDefaultBuilder(args)
+#if WINDSOR
                 .UseWindsorContainerServiceProvider()
+#endif
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
                         .UseKestrel()
                         .UseStartup<Startup>();
                 });
+        }
     }
 }

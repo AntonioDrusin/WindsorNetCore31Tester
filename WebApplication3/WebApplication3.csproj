@@ -4,11 +4,28 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <StartupObject>WebApplication3.Program</StartupObject>
+    <Configurations>Debug;Release;DebugWindsor;DebugMsInjection</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;WINDSOR</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMsInjection|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;WINDSOR</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugWindsor|AnyCPU'">
+    <DefineConstants>TRACE;WINDSOR</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Castle.Windsor" Version="5.1.5-verge" />
-    <PackageReference Include="Castle.Windsor.Extensions.MsDependencyInjection" Version="5.1.5-verge" />
+    <PackageReference Include="Castle.Windsor" Version="5.1.0-beta001" />
+    <PackageReference Include="Castle.Windsor.Extensions.DependencyInjection" Version="5.1.0-beta001" />
   </ItemGroup>
 
 

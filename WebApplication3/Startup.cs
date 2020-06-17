@@ -21,15 +21,20 @@ namespace WebApplication3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+#if !WINDSOR
+            Installer.MsInstall(services);
+#endif
         }
 
+#if WINDSOR
         public void ConfigureContainer (IWindsorContainer container)
         {
             container.Install(new Installer());
-
-            var u = container.Resolve<ITransientService>();
-            container.Release(u);
+        
+            //var u = container.Resolve<ITransientService>();
+            //container.Release(u);
         }
+#endif
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

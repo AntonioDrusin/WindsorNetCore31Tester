@@ -18,14 +18,12 @@ namespace WebApplication3.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly ITransientService _transient;
-        private readonly IOtherTransient _otherTransient;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, ITransientService transient, IOtherTransient otherTransient)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ITransientService transient)
         {
             Console.WriteLine("Controller created");
             _logger = logger;
             _transient = transient;
-            _otherTransient = otherTransient;
         }
 
         [HttpGet]
