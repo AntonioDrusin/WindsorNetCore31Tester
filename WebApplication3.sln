@@ -8,6 +8,7 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DebugAutofac|Any CPU = DebugAutofac|Any CPU
 		DebugMsInjection|Any CPU = DebugMsInjection|Any CPU
 		DebugWindsor|Any CPU = DebugWindsor|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -15,6 +16,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BFD7F9B6-CEB5-41A6-900D-6693FA3F3BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BFD7F9B6-CEB5-41A6-900D-6693FA3F3BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD7F9B6-CEB5-41A6-900D-6693FA3F3BAB}.DebugAutofac|Any CPU.ActiveCfg = DebugAutofac|Any CPU
+		{BFD7F9B6-CEB5-41A6-900D-6693FA3F3BAB}.DebugAutofac|Any CPU.Build.0 = DebugAutofac|Any CPU
 		{BFD7F9B6-CEB5-41A6-900D-6693FA3F3BAB}.DebugMsInjection|Any CPU.ActiveCfg = DebugMsInjection|Any CPU
 		{BFD7F9B6-CEB5-41A6-900D-6693FA3F3BAB}.DebugMsInjection|Any CPU.Build.0 = DebugMsInjection|Any CPU
 		{BFD7F9B6-CEB5-41A6-900D-6693FA3F3BAB}.DebugWindsor|Any CPU.ActiveCfg = DebugWindsor|Any CPU

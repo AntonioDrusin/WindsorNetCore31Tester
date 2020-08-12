@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <StartupObject>WebApplication3.Program</StartupObject>
-    <Configurations>Debug;Release;DebugWindsor;DebugMsInjection</Configurations>
+    <Configurations>Debug;Release;DebugWindsor;DebugMsInjection;DebugAutofac</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMsInjection|AnyCPU'">
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;MSINJECTION</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -23,9 +23,14 @@
     <DefineConstants>TRACE;WINDSOR</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAutofac|AnyCPU'">
+    <DefineConstants>TRACE;AUTOFAC</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Castle.Windsor" Version="5.1.0-beta001" />
-    <PackageReference Include="Castle.Windsor.Extensions.DependencyInjection" Version="5.1.0-beta001" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Castle.Windsor" Version="5.1.2" />
+    <PackageReference Include="Castle.Windsor.Extensions.DependencyInjection" Version="5.1.2" />
   </ItemGroup>
 
 

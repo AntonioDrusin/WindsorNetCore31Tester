@@ -1,8 +1,16 @@
-﻿using Castle.MicroKernel.Registration;
-using Castle.MicroKernel.SubSystems.Configuration;
-using Castle.Windsor;
-using Castle.Windsor.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.DependencyInjection;
+﻿#if AUTOFAC
+    using Autofac;
+    using WebApplication3.Controllers;
+#endif
+#if WINDSOR
+    using Castle.MicroKernel.Registration;
+    using Castle.MicroKernel.SubSystems.Configuration;
+    using Castle.Windsor;
+    using Castle.Windsor.Extensions.DependencyInjection.Extensions;
+#endif
+#if MSINJECTION
+    using Microsoft.Extensions.DependencyInjection;
+#endif
 
 namespace WebApplication3.Services
 {
@@ -19,7 +27,8 @@ namespace WebApplication3.Services
             );
         }
     }
-#else
+#endif
+#if MSINJECTION
     public class Installer 
     {
 
@@ -28,6 +37,17 @@ namespace WebApplication3.Services
             services.AddScoped<IPerWebRequestService, PerWebRequestService>();
             services.AddTransient<ITransientDependentOnPerRequestService, TransientDependentOnDependentOnPerRequestService>();
             services.AddTransient<ITransientService, TransientService>();
+        }
+    }
+#endif
+#if AUTOFAC
+    public static class Installer
+    {
+        public static void Install(this ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterType<TransientService>().As<ITransientService>().InstancePerDependency();
+            containerBuilder.RegisterType<TransientDependentOnDependentOnPerRequestService>().As<ITransientDependentOnPerRequestService>().InstancePerDependency().InstancePerDependency();
+            containerBuilder.RegisterType<PerWebRequestService>().As<IPerWebRequestService>().InstancePerLifetimeScope();
         }
     }
 #endif

@@ -1,4 +1,11 @@
+#if AUTOFAC
+using Autofac;
+#endif
+#if WINDSOR
 using Castle.Windsor;
+#endif
+using System;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,18 +28,23 @@ namespace WebApplication3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-#if !WINDSOR
+#if MSINJECTION
             Installer.MsInstall(services);
 #endif
+            
         }
 
 #if WINDSOR
         public void ConfigureContainer (IWindsorContainer container)
         {
             container.Install(new Installer());
-        
-            //var u = container.Resolve<ITransientService>();
-            //container.Release(u);
+        }
+#endif
+
+#if AUTOFAC
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.Install();
         }
 #endif
 

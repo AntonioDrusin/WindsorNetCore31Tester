@@ -1,3 +1,6 @@
+#if AUTOFAC
+using Autofac.Extensions.DependencyInjection;
+#endif
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -15,6 +18,9 @@ namespace WebApplication3
             return Host.CreateDefaultBuilder(args)
 #if WINDSOR
                 .UseWindsorContainerServiceProvider()
+#endif
+#if AUTOFAC
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
 #endif
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
